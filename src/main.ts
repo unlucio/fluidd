@@ -37,11 +37,9 @@ import App from './App.vue'
 
 // Register global directives.
 import SafeHtml from './directives/safe-html'
-import TouchAndHold from './directives/touchAndHold'
 
 // Directives...
 Vue.directive('safe-html', SafeHtml)
-Vue.directive('touch-and-hold', TouchAndHold)
 
 // v-chart component asynchronously loaded from a split chunk
 Vue.component('EChart', () => import('./vue-echarts-chunk'))
