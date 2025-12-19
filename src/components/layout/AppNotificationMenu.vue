@@ -76,11 +76,11 @@
             :class="classes(n)"
           >
             <v-list-item-content>
-              <v-list-item-title v-html="n.title" />
+              <v-list-item-title v-safe-html="n.title" />
               <v-list-item-subtitle
                 v-if="n.description"
+                v-safe-html="n.description"
                 class="notification-description"
-                v-html="n.description"
               />
               <v-list-item-subtitle class="notification-timestamp">
                 {{ $filters.formatRelativeTimeToNow(n.timestamp * 1000) }}
@@ -88,20 +88,20 @@
               <v-list-item-subtitle v-if="n.to">
                 <app-btn
                   v-if="!n.to.startsWith('http')"
+                  v-safe-html="n.btnText || $t('app.general.btn.more_information')"
                   x-small
                   :to="n.to"
                   class="mr-1"
                   @click="menu = false"
-                  v-html="(n.btnText) ? n.btnText : $t('app.general.btn.more_information')"
                 />
                 <app-btn
                   v-else
+                  v-safe-html="n.btnText || $t('app.general.btn.more_information')"
                   x-small
                   :href="n.to"
                   target="_blank"
                   class="mr-1"
                   @click="menu = false"
-                  v-html="(n.btnText) ? n.btnText : $t('app.general.btn.more_information')"
                 />
 
                 <app-announcement-dismiss-menu
@@ -116,12 +116,12 @@
             >
               <v-icon
                 v-if="n.suffixIcon"
+                v-safe-html="n.suffixIcon"
                 :color="color"
-                v-html="n.suffixIcon"
               />
               <div
+                v-safe-html="n.suffix"
                 class="notification-temp"
-                v-html="n.suffix"
               />
             </v-list-item-action>
             <v-list-item-action

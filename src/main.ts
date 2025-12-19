@@ -36,10 +36,12 @@ import { ColorSetPlugin } from './plugins/colorSet'
 import App from './App.vue'
 
 // Register global directives.
-import Blur from '@/directives/blur'
+import SafeHtml from './directives/safe-html'
+import TouchAndHold from './directives/touchAndHold'
 
 // Directives...
-Vue.directive('blur', Blur)
+Vue.directive('safe-html', SafeHtml)
+Vue.directive('touch-and-hold', TouchAndHold)
 
 // v-chart component asynchronously loaded from a split chunk
 Vue.component('EChart', () => import('./vue-echarts-chunk'))
