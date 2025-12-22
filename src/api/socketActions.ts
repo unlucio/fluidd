@@ -455,7 +455,7 @@ export const SocketActions = {
     )
   },
 
-  serverConnectionIdentify (params?: { client_name: string, version: string, type: string, url: string }, options?: NotifyOptions) {
+  serverConnectionIdentify (params?: { client_name: string, version: string, type: string, url: string, access_token?: string, api_key?: string }, options?: NotifyOptions) {
     return baseEmit<Moonraker.Websocket.ConnectionIdentifyResponse>(
       'server.connection.identify', {
         dispatch: 'socket/onConnectionId',
