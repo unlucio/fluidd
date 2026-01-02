@@ -939,6 +939,8 @@ declare namespace Klipper {
 
       [key: `load_cell ${Lowercase<string>}`]: LoadCellSettings;
 
+      [key: `static_pwm_clock ${Lowercase<string>}`]: StaticPwmClockSettings;
+
       // These keys are for kalico modules
 
       danger_options: KalicoPrinterDangerOptionsSettings;
@@ -1468,6 +1470,10 @@ declare namespace Klipper {
     pga_bypass?: boolean;
     input_mux?: string;
     vref?: string;
+  }
+
+  export interface StaticPwmClockSettings {
+    frequency: number;
   }
 
   export interface KalicoPrinterDangerOptionsSettings {
